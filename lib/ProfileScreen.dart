@@ -80,17 +80,17 @@ body:
                   Icon(
                       Icons.settings_outlined,
                     size: 30,
-        
-        
+
+
                   ),
                   TextButton(onPressed: (){},
                       child:Text(
                         'Account Settings',
-        
+
                       )
                   ),
-        
-        
+
+
                 ],
               ),
             ),
@@ -110,17 +110,17 @@ body:
                   Icon(
                     Icons.favorite_border,
                     size: 30,
-        
-        
+
+
                   ),
                   TextButton(onPressed: (){},
                       child:Text(
                         'Favorite',
-        
+
                       )
                   ),
-        
-        
+
+
                 ],
               ),
             ),
@@ -132,23 +132,23 @@ body:
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
             ),
-       width: 375,
+               width: 375,
               child: Row(
                 children: [
                   Icon(
                     Icons.notifications_outlined,
                     size: 30,
-        
-        
+
+
                   ),
                   TextButton(onPressed: (){},
                       child:Text(
                         'Notfication',
-        
+
                       )
                   ),
-        
-        
+
+
                 ],
               ),
             ),
@@ -166,17 +166,17 @@ body:
                   Icon(
                     Icons.help_outline,
                     size: 30,
-        
-        
+
+
                   ),
                   TextButton(onPressed: (){},
                       child:Text(
                         'Help Center',
-        
+
                       )
                   ),
-        
-        
+
+
                 ],
               ),
             ),
@@ -196,119 +196,24 @@ body:
                   Icon(
                     Icons.exit_to_app,
                     size: 30,
-        
-        
+
+
                   ),
                   TextButton(onPressed: (){},
                       child:Text(
                         'Sign Out',
-        
+
                       )
                   ),
-        
-        
+
+
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-      Container(
-        color: Color(0xFFFFF8DC),
-        width: double.infinity,
-        height: 60.0,
-        child: Row(
-          children: [
-
-            Expanded(
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                     MaterialPageRoute(builder: (context) =>HomeScreen()    ),
-                  );
-                },
-                child: Column(
-
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  children: [
-                    Icon(
-                      Icons.home_outlined,
-                      size: 35,
-                    ),
-                    Text(
-                      'Home',
-                      style: TextStyle(
-                          fontSize: 15.0
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=>FeildSceen() )
-                  );
-                },
-                child: Column(
-
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  children: [
-                    Image.asset(
-                      'Images/field.png',
-                      width: 45,
-                      height: 35,
-
-
-                    ),
-
-                    Text(
-                      'feilds',
-                      style: TextStyle(
-                          fontSize: 15.0
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=>ProfileScreen() )
-                  );
-                },
-                child: Column(
-
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  children: [
-                    Icon(
-                      Icons.person,
-                      size: 35,
-                    ),
-                    Text(
-                      'profile',
-                      style: TextStyle(
-                          fontSize: 15.0
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
-            ),
 
           ],
         ),
+
       ),
 
 
@@ -321,6 +226,44 @@ body:
   ),
 
 ),
+       bottomNavigationBar: BottomNavigationBar(
+         items: const <BottomNavigationBarItem>[
+           BottomNavigationBarItem(
+             icon: Icon(Icons.home),
+             label: 'Home',
+           ),
+           BottomNavigationBarItem(
+             icon: ImageIcon(
+                 AssetImage('Images/field.png'),
+                 size: 35),
+             label: 'Fields',
+           ),
+           BottomNavigationBarItem(
+             icon: Icon(Icons.person),
+             label: 'Profile',
+           ),
+         ],
+         currentIndex: 1,
+         selectedItemColor: Colors.amber[800],
+         onTap: (index) {
+           if (index == 0) {
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => HomeScreen()),
+             );
+           } else if (index == 1) {
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => FeildSceen()),
+             );
+           } else if (index == 2) {
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => ProfileScreen()),
+             );
+           }
+         },
+       ),
 
 
 
